@@ -1,58 +1,334 @@
-# Svelte library
+# @mosa-ui/components
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+A modern, customizable component library built with SvelteKit and Tailwind CSS.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+## Features
 
-## Creating a project
+- Built with Tailwind CSS v4 for modern styling
+- Svelte 5 with the latest syntax and runes
+- Tree-shakeable components
+- Full TypeScript support
+- Accessibility-focused
+- Fully customizable with Tailwind utilities
+- Clean, composable component APIs
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Step 1: Install the package
 
 ```bash
-npm run dev
+# npm
+npm install @mosa-ui/components
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# pnpm
+pnpm add @mosa-ui/components
+
+# yarn
+yarn add @mosa-ui/components
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+> **Note**: This package requires `svelte@^5.0.0` and `tailwindcss@^4.0.0` as peer dependencies. If you're using SvelteKit with Tailwind CSS v4, you should already have these installed.
 
-## Building
+### Step 2: Configure Tailwind CSS
 
-To build your library:
+Create a `tailwind.config.ts` file in your project root (if you don't have one already):
+
+```ts
+import type { Config } from 'tailwindcss';
+
+export default {
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		'./node_modules/@mosa-ui/components/**/*.{js,svelte,ts}'
+	]
+} satisfies Config;
+```
+
+### Step 3: Import styles
+
+In your app's main CSS file (usually `src/app.css`):
+
+```css
+@config '../tailwind.config.ts';
+@import 'tailwindcss';
+@import '@mosa-ui/components/styles';
+```
+
+### Step 4: Import CSS in your layout
+
+In your `src/routes/+layout.svelte`:
+
+```svelte
+<script>
+	import '../app.css';
+</script>
+
+<slot />
+```
+
+## Updating the Package
+
+To update @mosa-ui/components to the latest version:
 
 ```bash
-npm run package
+# npm
+npm update @mosa-ui/components        # Updates within version range (e.g., ^0.0.3)
+npm install @mosa-ui/components@latest # Updates to absolute latest version
+
+# pnpm
+pnpm update @mosa-ui/components        # Updates within version range
+pnpm update @mosa-ui/components@latest # Updates to absolute latest version
+
+# yarn
+yarn upgrade @mosa-ui/components       # Updates within version range
+yarn add @mosa-ui/components@latest    # Updates to absolute latest version
 ```
 
-To create a production version of your showcase app:
+> **Note**: The difference between `update` and `install/add @latest`:
+>
+> - `update` respects the version range in your package.json (e.g., `^0.0.3` won't update to `0.1.0`)
+> - `@latest` always gets the newest version regardless of your package.json constraints
+
+To check for available updates:
 
 ```bash
-npm run build
+# npm
+npm outdated @mosa-ui/components
+
+# pnpm
+pnpm outdated @mosa-ui/components
+
+# yarn
+yarn outdated @mosa-ui/components
 ```
 
-You can preview the production build with `npm run preview`.
+## Usage
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Import and use components in your Svelte application:
 
-## Publishing
+```svelte
+<script>
+	import { Button } from '@mosa-ui/components';
+</script>
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
+<Button variant="primary" size="md" onclick={() => alert('Clicked!')}>Click me</Button>
+```
 
-To publish your library to [npm](https://www.npmjs.com):
+## Theme Customization
+
+The component library uses CSS custom properties (via Tailwind v4 theme variables) that you can override to match your brand.
+
+### Available Theme Variables
+
+Add these to your `app.css` after the imports to customize the theme:
+
+```css
+@theme {
+	/* Primary brand color */
+	--color-primary: rgb(59 130 246);
+	--color-primary-foreground: rgb(248 250 252);
+
+	/* Secondary color (for secondary actions) */
+	--color-secondary: rgb(241 245 249);
+	--color-secondary-foreground: rgb(15 23 42);
+
+	/* Destructive color (for dangerous actions) */
+	--color-destructive: rgb(239 68 68);
+	--color-destructive-foreground: rgb(254 242 242);
+
+	/* UI colors */
+	--color-border: rgb(226 232 240);
+	--color-ring: rgb(59 130 246);
+	--color-background: rgb(255 255 255);
+	--color-foreground: rgb(2 8 23);
+}
+```
+
+### Example: Dark Mode
+
+```css
+/* Define dark mode colors */
+@media (prefers-color-scheme: dark) {
+	@theme {
+		--color-primary: rgb(96 165 250);
+		--color-primary-foreground: rgb(15 23 42);
+		--color-secondary: rgb(30 41 59);
+		--color-secondary-foreground: rgb(226 232 240);
+		--color-destructive: rgb(220 38 38);
+		--color-destructive-foreground: rgb(254 226 226);
+		--color-border: rgb(51 65 85);
+		--color-background: rgb(15 23 42);
+		--color-foreground: rgb(241 245 249);
+	}
+}
+```
+
+## Components
+
+### Button
+
+A flexible button component with multiple variants and sizes.
+
+#### Props
+
+| Prop       | Type                                        | Default     | Description                    |
+| ---------- | ------------------------------------------- | ----------- | ------------------------------ |
+| `variant`  | `'primary' \| 'secondary' \| 'destructive'` | `'primary'` | Visual style variant           |
+| `size`     | `'sm' \| 'md' \| 'lg'`                      | `'md'`      | Button size                    |
+| `disabled` | `boolean`                                   | `false`     | Whether the button is disabled |
+| `type`     | `'button' \| 'submit' \| 'reset'`           | `'button'`  | HTML button type               |
+| `class`    | `string`                                    | `''`        | Additional CSS classes         |
+| `onclick`  | `(event: MouseEvent) => void`               | -           | Click event handler            |
+
+#### Examples
+
+```svelte
+<!-- Primary button (default) -->
+<Button>Click me</Button>
+
+<!-- Secondary variant -->
+<Button variant="secondary">Secondary</Button>
+
+<!-- Destructive variant -->
+<Button variant="destructive">Delete</Button>
+
+<!-- Different sizes -->
+<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>
+
+<!-- Disabled state -->
+<Button disabled>Disabled</Button>
+
+<!-- Custom styling with Tailwind classes -->
+<Button class="rounded-full shadow-lg">Pill with Shadow</Button>
+<Button class="bg-purple-500 hover:bg-purple-600">Custom Purple</Button>
+<Button class="w-full">Full Width</Button>
+
+<!-- Submit button in a form -->
+<form on:submit={handleSubmit}>
+	<Button type="submit">Submit Form</Button>
+</form>
+```
+
+## Advanced Customization
+
+### Override Individual Components
+
+You can override specific component instances using Tailwind classes:
+
+```svelte
+<script>
+	import { Button, cn } from '@mosa-ui/components';
+
+	let isActive = false;
+</script>
+
+<!-- Complete override -->
+<Button class="rounded-full border-0 bg-gradient-to-r from-purple-500 to-pink-500 px-8 text-white">
+	Gradient Button
+</Button>
+
+<!-- Conditional styling -->
+<Button class={cn('transition-transform', isActive && 'scale-105 shadow-xl')}>
+	{isActive ? 'Active' : 'Inactive'}
+</Button>
+```
+
+### Using the cn Utility
+
+The library exports a `cn` utility function for combining classes:
+
+```svelte
+<script>
+	import { cn } from '@mosa-ui/components';
+
+	let condition = true;
+
+	const classes = cn('base-class', condition && 'conditional-class', 'another-class');
+</script>
+```
+
+## Troubleshooting
+
+### Components are unstyled
+
+Make sure you've:
+
+1. Configured Tailwind to scan the component library files (Step 2)
+2. Imported the styles in the correct order (Step 3)
+3. Restarted your dev server after configuration changes
+
+### Custom colors not working
+
+Ensure your `@theme` variables are defined after the component library import:
+
+```css
+@config './tailwind.config.ts';
+@import 'tailwindcss';
+@import '@mosa-ui/components/styles';
+
+/* Your custom theme AFTER imports */
+@theme {
+	--color-primary: rgb(147 51 234);
+}
+```
+
+### TypeScript errors
+
+Make sure you're using Svelte 5 and have the latest TypeScript configuration for Svelte.
+
+## Development
+
+### Project Structure
+
+```
+packages/components/
+├── src/
+│   ├── lib/
+│   │   ├── components/
+│   │   │   ├── Button/
+│   │   │   │   └── Button.svelte
+│   │   │   └── index.ts
+│   │   ├── styles/
+│   │   │   └── theme.css
+│   │   └── index.ts
+│   └── ...
+└── package.json
+```
+
+### Storybook
+
+View the component in Storybook:
 
 ```bash
-npm publish
+git clone https://github.com/your-username/mosa-ui.git
+cd mosa-ui
+pnpm install
+pnpm --filter @mosa-ui/components storybook
 ```
+
+### Building
+
+```bash
+pnpm build
+```
+
+### Testing
+
+```bash
+pnpm test
+```
+
+## Roadmap
+
+- [ ] Additional button variants (ghost, outline, link)
+- [ ] Form components (Input, Select, Checkbox, Radio)
+- [ ] Layout components (Card, Container, Grid)
+- [ ] Feedback components (Alert, Toast, Modal)
+- [ ] Navigation components (Tabs, Breadcrumb)
+- [ ] Data display components (Table, Badge, Avatar)
+
+## License
+
+MIT © [Your Name]
