@@ -1,0 +1,21 @@
+@theme {
+	--color-primary: rgb(59 130 246);
+	--color-primary-foreground: rgb(248 250 252);
+	--color-secondary: rgb(241 245 249);
+	--color-secondary-foreground: rgb(15 23 42);
+	--color-destructive: rgb(239 68 68);
+	--color-destructive-foreground: rgb(254 242 242);
+	--color-border: rgb(226 232 240);
+	--color-ring: rgb(59 130 246);
+	--color-background: rgb(255 255 255);
+	--color-foreground: rgb(2 8 23);
+}
+
+@layer components {
+	.btn {
+		@apply inline-flex items-center justify-center whitespace-nowrap;
+		@apply font-medium transition-all duration-200;
+		@apply disabled:pointer-events-none disabled:opacity-50;
+		@apply focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none;
+	}
+}

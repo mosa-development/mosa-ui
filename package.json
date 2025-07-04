@@ -1,13 +1,26 @@
 {
   "name": "mosa-ui",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "pnpm --filter @mosa-ui/components dev",
+    "build": "pnpm --filter @mosa-ui/components build",
+    "package": "pnpm --filter @mosa-ui/components package",
+    "check": "pnpm --filter @mosa-ui/components check",
+    "test": "pnpm --filter @mosa-ui/components test",
+    "pack": "pnpm -r --filter @mosa-ui/components exec pnpm pack",
+    "prerelease": "pnpm check && pnpm test && pnpm build",
+    "release": "pnpm build && pnpm --filter @mosa-ui/components version patch && pnpm --filter @mosa-ui/components publish",
+    "release:minor": "pnpm build && pnpm --filter @mosa-ui/components version minor && pnpm --filter @mosa-ui/components publish",
+    "release:major": "pnpm build && pnpm --filter @mosa-ui/components version major && pnpm --filter @mosa-ui/components publish",
+    "release:beta": "pnpm build && pnpm --filter @mosa-ui/components version prerelease --preid=beta && pnpm --filter @mosa-ui/components publish --tag beta"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.8.0"
+  "devDependencies": {
+    "pnpm": "^10.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
 }
