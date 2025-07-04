@@ -1,5 +1,6 @@
 <script lang="ts">
-  
+	import { cn } from '$lib/utils/cn.js';
+    
   interface Props {
     variant?: 'primary' | 'secondary' | 'destructive';
     size?: 'sm' | 'md' | 'lg';
