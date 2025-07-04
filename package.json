@@ -10,9 +10,9 @@
     "test": "pnpm --filter @mosa-ui/components test",
     "pack": "pnpm -r --filter @mosa-ui/components exec pnpm pack",
     "prerelease": "pnpm check && pnpm test && pnpm build",
-    "release": "pnpm build && pnpm --filter @mosa-ui/components exec npm version patch && pnpm --filter @mosa-ui/components publish",
-    "release:minor": "pnpm build && pnpm --filter @mosa-ui/components exec npm version minor && pnpm --filter @mosa-ui/components publish",
-    "release:major": "pnpm build && pnpm --filter @mosa-ui/components exec npm version major && pnpm --filter @mosa-ui/components publish",
+    "release": "pnpm build && pnpm --filter @mosa-ui/components exec npm version patch && pnpm --filter @mosa-ui/components publish --no-git-checks && git add . && git commit -m 'chore: update version number' && git push && git push --tags",
+    "release:minor": "pnpm build && pnpm --filter @mosa-ui/components exec npm version minor && pnpm --filter @mosa-ui/components publish && git push && git push --tags",
+    "release:major": "pnpm build && pnpm --filter @mosa-ui/components exec npm version major && pnpm --filter @mosa-ui/components publish && git push && git push --tags",
     "release:beta": "pnpm build && pnpm --filter @mosa-ui/components exec npm version prerelease --preid=beta && pnpm --filter @mosa-ui/components publish --tag beta"
   },
   "devDependencies": {
