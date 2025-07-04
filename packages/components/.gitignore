@@ -25,3 +25,12 @@ vite.config.ts.timestamp-*
 
 *storybook.log
 storybook-static
+
+# Vite temporary files
+vite.config.ts.timestamp-*
+vite.config.js.timestamp-*
+*.timestamp-*
+
+# Other temp files
+*.tmp
+*.temp
