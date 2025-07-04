@@ -1,5 +1,5 @@
 {
-	"name": "components",
+	"name": "@mosa-ui/components",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
