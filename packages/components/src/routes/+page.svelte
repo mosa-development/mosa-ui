@@ -12,6 +12,7 @@
       <Button>Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="destructive">Destructive</Button>
+      <Button variant="text">Text</Button>
     </div>
   </section>
   
