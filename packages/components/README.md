@@ -12,6 +12,10 @@ A modern, customizable component library built with SvelteKit and Tailwind CSS.
 - Fully customizable with Tailwind utilities
 - Clean, composable component APIs
 
+## GitHub repo
+
+View on GitHub: **[Mosa UI repo](https://github.com/mosa-development/mosa-ui)**
+
 ## Documentation
 
 View our interactive component documentation: **[Mosa UI docs](https://mosa-development.github.io/mosa-ui)**
@@ -118,6 +122,8 @@ Import and use components in your Svelte application:
 <Button variant="primary" size="md" onclick={() => alert('Clicked!')}>Click me</Button>
 ```
 
+For detailed component documentation, examples, and API references, visit our **[component documentation](https://mosa-development.github.io/mosa-ui)**.
+
 ## Theme Customization
 
 The component library uses CSS custom properties (via Tailwind v4 theme variables) that you can override to match your brand.
@@ -165,54 +171,6 @@ Add these to your `app.css` after the imports to customize the theme:
 		--color-foreground: rgb(241 245 249);
 	}
 }
-```
-
-## Components
-
-### Button
-
-A flexible button component with multiple variants and sizes.
-
-#### Props
-
-| Prop       | Type                                        | Default     | Description                    |
-| ---------- | ------------------------------------------- | ----------- | ------------------------------ |
-| `variant`  | `'primary' \| 'secondary' \| 'destructive'` | `'primary'` | Visual style variant           |
-| `size`     | `'sm' \| 'md' \| 'lg'`                      | `'md'`      | Button size                    |
-| `disabled` | `boolean`                                   | `false`     | Whether the button is disabled |
-| `type`     | `'button' \| 'submit' \| 'reset'`           | `'button'`  | HTML button type               |
-| `class`    | `string`                                    | `''`        | Additional CSS classes         |
-| `onclick`  | `(event: MouseEvent) => void`               | -           | Click event handler            |
-
-#### Examples
-
-```svelte
-<!-- Primary button (default) -->
-<Button>Click me</Button>
-
-<!-- Secondary variant -->
-<Button variant="secondary">Secondary</Button>
-
-<!-- Destructive variant -->
-<Button variant="destructive">Delete</Button>
-
-<!-- Different sizes -->
-<Button size="sm">Small</Button>
-<Button size="md">Medium</Button>
-<Button size="lg">Large</Button>
-
-<!-- Disabled state -->
-<Button disabled>Disabled</Button>
-
-<!-- Custom styling with Tailwind classes -->
-<Button class="rounded-full shadow-lg">Pill with Shadow</Button>
-<Button class="bg-purple-500 hover:bg-purple-600">Custom Purple</Button>
-<Button class="w-full">Full Width</Button>
-
-<!-- Submit button in a form -->
-<form on:submit={handleSubmit}>
-	<Button type="submit">Submit Form</Button>
-</form>
 ```
 
 ## Advanced Customization
@@ -282,6 +240,10 @@ Ensure your `@theme` variables are defined after the component library import:
 
 Make sure you're using Svelte 5 and have the latest TypeScript configuration for Svelte.
 
+## Repository
+
+Find the source code and contribute on **[GitHub](https://github.com/mosa-development/mosa-ui)**.
+
 ## Development
 
 ### Project Structure
@@ -291,8 +253,6 @@ packages/components/
 ├── src/
 │   ├── lib/
 │   │   ├── components/
-│   │   │   ├── Button/
-│   │   │   │   └── Button.svelte
 │   │   │   └── index.ts
 │   │   ├── styles/
 │   │   │   └── theme.css
@@ -306,7 +266,7 @@ packages/components/
 View the component in Storybook:
 
 ```bash
-git clone https://github.com/your-username/mosa-ui.git
+git clone https://github.com/mosa-development/mosa-ui.git
 cd mosa-ui
 pnpm install
 pnpm --filter @mosa-ui/components storybook
@@ -324,15 +284,6 @@ pnpm build
 pnpm test
 ```
 
-## Roadmap
-
-- [ ] Additional button variants (ghost, outline, link)
-- [ ] Form components (Input, Select, Checkbox, Radio)
-- [ ] Layout components (Card, Container, Grid)
-- [ ] Feedback components (Alert, Toast, Modal)
-- [ ] Navigation components (Tabs, Breadcrumb)
-- [ ] Data display components (Table, Badge, Avatar)
-
 ## License
 
-MIT © [Your Name]
+MIT © mosa.dev

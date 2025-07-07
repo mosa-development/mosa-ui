@@ -131,3 +131,7 @@ For maintainers: See [RELEASING.md](./RELEASING.md) for detailed instructions on
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 - [Changesets](https://github.com/changesets/changesets) - Version management
 - [pnpm](https://pnpm.io/) - Package manager
+
+## License
+
+MIT © mosa.dev
