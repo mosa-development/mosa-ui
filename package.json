@@ -2,6 +2,7 @@
   "name": "mosa-ui",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.8.0",
   "scripts": {
     "dev": "pnpm --filter @mosa-ui/components dev",
     "build": "pnpm --filter @mosa-ui/components build",
