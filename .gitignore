@@ -51,3 +51,7 @@ storybook-static
 # Playwright
 test-results
 playwright-report
+
+# Changeset
+.changeset/*.md
+!.changeset/README.md
