@@ -1,6 +1,6 @@
 {
 	"name": "@mosa-ui/components",
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"type": "module",
 	"publishConfig": {
 		"access": "public"
