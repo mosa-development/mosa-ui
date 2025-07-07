@@ -53,5 +53,5 @@ test-results
 playwright-report
 
 # Changeset
-.changeset/*.md
-!.changeset/README.md
+.changeset/.cache
+.changeset/.temp
