@@ -12,6 +12,10 @@ A modern, customizable component library built with SvelteKit and Tailwind CSS.
 - Fully customizable with Tailwind utilities
 - Clean, composable component APIs
 
+## Documentation
+
+View our interactive component documentation: **[Mosa UI docs](https://mosa-development.github.io/mosa-ui)**
+
 ## Installation
 
 ### Step 1: Install the package
