@@ -6,6 +6,10 @@ A modern, customizable component library built with SvelteKit and Tailwind CSS v
 
 Mosa UI is a monorepo containing reusable UI components and tools for building modern web applications. Built with performance, accessibility, and developer experience in mind.
 
+### Documentation
+
+- **[Component Documentation](https://mosa-development.github.io/mosa-ui)** - Interactive component demos and API documentation
+
 ### Packages
 
 - **[@mosa-ui/components](./packages/components)** - Core component library with customizable, accessible components
