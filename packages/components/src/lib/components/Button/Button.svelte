@@ -2,7 +2,7 @@
 	import { cn } from '$lib/utils/cn.js';
 
 	interface Props {
-		variant?: 'primary' | 'secondary' | 'destructive' | 'text';
+		variant?: 'primary' | 'secondary' | 'destructive' | 'outline' | 'ghost';
 		size?: 'sm' | 'md' | 'lg';
 		disabled?: boolean;
 		type?: 'button' | 'submit' | 'reset';
@@ -23,20 +23,30 @@
 	}: Props = $props();
 
 	const sizeClasses = {
-		sm: 'h-8 px-3 text-xs',
-		md: 'h-10 px-4 text-sm',
-		lg: 'h-12 px-6 text-base'
+		sm: 'py-1 px-3 text-xs',
+		md: 'py-1.5 px-4 text-sm',
+		lg: 'py-2 px-6 text-base'
 	};
 
 	const variantClasses = {
-		primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
-		secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-		destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-		text: 'text-primary hover:text-primary/90 border-none'
+		primary:
+			'bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:ring-2 ring-primary ring-offset-2 ring-offset-background',
+		secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary-hover',
+		destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive-hover',
+		outline:
+			'border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground',
+		ghost: 'text-foreground hover:bg-accent hover:text-accent-foreground'
 	};
 
 	const buttonClasses = $derived(
-		cn('btn', 'border rounded-md', sizeClasses[size], variantClasses[variant], className)
+		cn(
+			'inline-flex items-center justify-center rounded-md font-medium transition-all duration-200',
+			'focus-visible:outline-none',
+			disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer',
+			sizeClasses[size],
+			disabled ? variantClasses[variant].split('hover:')[0] : variantClasses[variant],
+			className
+		)
 	);
 </script>
 
