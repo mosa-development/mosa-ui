@@ -1,21 +1,53 @@
 @theme {
 	--color-primary: rgb(59 130 246);
-	--color-primary-foreground: rgb(248 250 252);
+	--color-primary-hover: rgb(37 99 235);
+	--color-primary-foreground: rgb(255 255 255);
+
 	--color-secondary: rgb(241 245 249);
+	--color-secondary-hover: rgb(226 232 240);
 	--color-secondary-foreground: rgb(15 23 42);
+
 	--color-destructive: rgb(239 68 68);
-	--color-destructive-foreground: rgb(254 242 242);
+	--color-destructive-hover: rgb(220 38 38);
+	--color-destructive-foreground: rgb(255 255 255);
+
 	--color-border: rgb(226 232 240);
 	--color-ring: rgb(59 130 246);
 	--color-background: rgb(255 255 255);
 	--color-foreground: rgb(2 8 23);
+
+	--color-muted: rgb(248 250 252);
+	--color-muted-foreground: rgb(100 116 139);
+	--color-accent: rgb(241 245 249);
+	--color-accent-foreground: rgb(15 23 42);
+	--color-card: rgb(255 255 255);
+	--color-card-foreground: rgb(15 23 42);
+
+	--font-sans: system-ui, -apple-system, sans-serif;
+	--font-display: 'Tilt Warp', var(--font-sans);
 }
 
-@layer components {
-	.btn {
-		@apply inline-flex items-center justify-center whitespace-nowrap;
-		@apply font-medium transition-all duration-200;
-		@apply disabled:pointer-events-none disabled:opacity-50;
-		@apply focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none;
-	}
+[data-theme='dark'] {
+	--color-primary: rgb(59 130 246);
+	--color-primary-hover: rgb(96 165 250);
+	--color-primary-foreground: rgb(255 255 255);
+
+	--color-secondary: rgb(51 65 85);
+	--color-secondary-hover: rgb(71 85 105);
+	--color-secondary-foreground: rgb(226 232 240);
+
+	--color-destructive: rgb(239 68 68);
+	--color-destructive-hover: rgb(248 113 113);
+	--color-destructive-foreground: rgb(255 255 255);
+	--color-border: rgb(51 65 85);
+	--color-ring: rgb(96 165 250);
+	--color-background: rgb(15 23 42);
+	--color-foreground: rgb(248 250 252);
+
+	--color-muted: rgb(30 41 59);
+	--color-muted-foreground: rgb(148 163 184);
+	--color-accent: rgb(30 41 59);
+	--color-accent-foreground: rgb(248 250 252);
+	--color-card: rgb(30 41 59);
+	--color-card-foreground: rgb(248 250 252);
 }
