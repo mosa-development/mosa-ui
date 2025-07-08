@@ -11,6 +11,12 @@ importers:
       '@fontsource/tilt-warp':
         specifier: ^5.2.9
         version: 5.2.9
+      '@iconify-icons/lucide':
+        specifier: ^1.2.135
+        version: 1.2.135
+      '@iconify/svelte':
+        specifier: ^5.0.0
+        version: 5.0.0(svelte@5.35.2)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -24,6 +30,9 @@ importers:
       '@changesets/cli':
         specifier: ^2.29.5
         version: 2.29.5
+      '@iconify/types':
+        specifier: ^2.0.0
+        version: 2.0.0
       pnpm:
         specifier: ^10.0.0
         version: 10.12.4
@@ -579,6 +588,17 @@ packages:
   '@humanwhocodes/retry@0.4.3':
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
+
+  '@iconify-icons/lucide@1.2.135':
+    resolution: {integrity: sha512-t2Dya1a+PInBmHScbbGyseze7rrGHRW/dYF4GTR6f51N08sCg6KrtE4zmplnZE1ul2NyC+sxKpXRCv48hEgaQw==}
+
+  '@iconify/svelte@5.0.0':
+    resolution: {integrity: sha512-Bm5iKnNpIWHuUlWaaf16QgVL1tcbQUUSdPdkvDlpmYXg3nFJSA1SLY9V4rRTd+K4h3QT12ZS7JHFLkf8khQd8Q==}
+    peerDependencies:
+      svelte: '>4.0.0'
+
+  '@iconify/types@2.0.0':
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
   '@isaacs/fs-minipass@4.0.1':
     resolution: {integrity: sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==}
@@ -2849,6 +2869,17 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.3': {}
+
+  '@iconify-icons/lucide@1.2.135':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify/svelte@5.0.0(svelte@5.35.2)':
+    dependencies:
+      '@iconify/types': 2.0.0
+      svelte: 5.35.2
+
+  '@iconify/types@2.0.0': {}
 
   '@isaacs/fs-minipass@4.0.1':
     dependencies:
