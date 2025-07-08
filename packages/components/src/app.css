@@ -1,2 +1,3 @@
 @import 'tailwindcss';
 @import './lib/styles/theme.css';
+@import '@fontsource/tilt-warp';
