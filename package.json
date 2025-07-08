@@ -30,7 +30,9 @@
     ]
   },
   "dependencies": {
+    "@fontsource/tilt-warp": "^5.2.9",
     "clsx": "^2.1.1",
+    "shiki": "^3.7.0",
     "tailwind-merge": "^3.3.1"
   }
 }
